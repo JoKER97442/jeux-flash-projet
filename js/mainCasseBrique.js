@@ -3,7 +3,8 @@
 /* **************************************************** VARIABLE **************************************************** */
 // On defini le terrain de jeu
 let game = {
-    color: "#FFF",
+    background: new Image(),
+    color: "#CFCFCF",
     gameOver: false,
     start: false,
     pause: false,
@@ -15,12 +16,13 @@ let game = {
 
 // On defini les propriete du pad
 let paddle = {
+    img: new Image(),
     vie: 3,
     init: true,
     x: 0,
     y: 0,
     largeur: 100,
-    hauteur: 10,
+    hauteur: 20,
     vitesse: 10,
     direction: 0,
     color: "#000"
@@ -56,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Recupere le canvas
     canvasDom = document.querySelector("#canvas");
+    //canvasDom.style.backgroundImage = game.background;
     
     // Le context utilisé
     ctx = canvasDom.getContext("2d");
@@ -66,11 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
    
     // Lance le jeu
-    
+    game.background.src = '../img/Bricks/Conturing.png';
+    paddle.img.src = '../img/Bricks/Racket.png';    
+    game.background.addEventListener('load', function() { 
+        
+    }, false);
     initGame();
-    
     playGame();
-    
     // Reste apuier sur une flèche du clavier
     document.addEventListener("keydown", keyboardEvent);
     // Relache le bouton du clavier
@@ -148,13 +153,17 @@ function creerBrique() {
             }
             
             if (brique.nb === 1) {
-                brique.color = "#07DB4A";
+                brique.color = new Image();
+                brique.color.src = '../img/Bricks/Green_brick.png';
             } else if (brique.nb === 2) {
-                brique.color = "#323CDB";
+                brique.color = new Image();
+                brique.color.src = '../img/Bricks/Blue_brick.png';
             } else if (brique.nb === 3) {
-                brique.color = "#DB0A07";
+                brique.color = new Image();
+                brique.color.src = '../img/Bricks/Orange_brick.png';
             } else {
-                brique.color = "#DBB212";
+                brique.color = new Image();
+                brique.color.src = '../img/Bricks/Red_brick.png';
             }
             
             listBrique.push(brique);
@@ -460,9 +469,12 @@ function displayGame()
             ctx.clearRect(0, 0, game.largeur, game.hauteur);
         
             // On dit au contexte que la couleur de remplissage est gris
-            ctx.fillStyle = '#DDDDDD';
+            ctx.fillStyle = game.color;
             // On rempli le Canvas de gris
             ctx.fillRect(0, 0, game.largeur, game.hauteur);
+            
+            // Background Image
+            ctx.drawImage(game.background, 0, 30, game.largeur, game.hauteur);
         
             // On dit au contexte que la couleur de remplissage est rouge
             ctx.fillStyle = balle.color;
@@ -473,7 +485,7 @@ function displayGame()
             ctx.fill();
             
             // On trace le pad
-            ctx.fillRect(paddle.x, paddle.y, paddle.largeur, paddle.hauteur);
+            ctx.drawImage(paddle.img, paddle.x, paddle.y, paddle.largeur, paddle.hauteur);
             
             // La vie
             let x = 10;
@@ -486,8 +498,9 @@ function displayGame()
             for (let i = 0; i < listBrique.length; ++i) {
                 
                 let brique = listBrique[i];
-                ctx.fillStyle = brique.color;
-                ctx.fillRect(brique.x, brique.y, brique.largeur, brique.hauteur);
+               // ctx.fillStyle = brique.color;
+                //ctx.fillRect(brique.x, brique.y, brique.largeur, brique.hauteur);
+                ctx.drawImage(brique.color, brique.x, brique.y, brique.largeur, brique.hauteur);
             }
             
             
@@ -499,13 +512,7 @@ function displayGame()
             ctx.fillText("Meilleur score : ", game.largeur/2 - ctx.measureText("Meilleur score : ").width, 20);
             ctx.fillText(meilleurScore, game.largeur/2 + ctx.measureText(meilleurScore).width/2 + 10, 20);
         }
-        ctx.beginPath();
-    ctx.lineWidth = "5";
-    ctx.fillStyle = 'green';
-    ctx.strokeStyle = 'red';
-    ctx.moveTo(10,50);
-    ctx.lineTo(300,50);
-    ctx.stroke();
+        
         
     }
     
@@ -515,7 +522,7 @@ function displayGame()
 
 /* **************************************************** KEYBOARD **************************************************** */
 function keyboardEvent(e) {
-    e.preventEvent();
+    e.preventDefault();
     if (e.key == 'ArrowRight') {
         if (e.type == "keydown") {
             paddle.direction = 1;
@@ -529,9 +536,10 @@ function keyboardEvent(e) {
             paddle.direction = 0;
         }
     };
+    console.log(e);
     
     // Apuie sur le bouton du clavier
-    if (e.key === ' ' && e.type == "keypress") {
+    if (e.key == "Enter" && e.type == "keydown") {
         if (game.gameOver) {
             game.gameOver = false;
             game.start = false;
