@@ -18,16 +18,18 @@ window.addEventListener("load", function() {
 });
 
 /* ****************  GERER LA LANCEMENT ET AFFICHAGE  **************** */
-function playGame() {
+function playGame(event) {
+    event.preventDefault();
     jeu.removeEventListener("click", playGame);
     start = true;
     recupereBlock();
     updateTour();
 }
-function replay() {
+function replay(event) {
+    event.preventDefault();
+    jeu.removeEventListener("click", replay);
     gagner = false;
     partieNull = false;
-    jeu.removeEventListener("click", replay);
     jeu.addEventListener("click", playGame);
     
     console.log("game")
@@ -67,7 +69,8 @@ function recupereBlock() {
 
             
 /* ****************  ECRITURE X / O  **************** */ 
-function writeMorpion() {
+function writeMorpion(event) {
+    event.preventDefault();
     this.removeEventListener("click", writeMorpion);
     if (tour === playerX) {
         this.innerHTML = "x";

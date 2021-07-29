@@ -1,16 +1,14 @@
-* {
-    box-sizing: border-box;
+.game {
+    flex-direction: column;
+    align-items: center;
 }
-body {
+
+.game h1 {
     margin: 0;
-    padding: 0;
-    text-align: center;
+    font-size: 38px;
 }
-.container {
-    width: 900px;
-    margin: 0 auto;
-}
-ul {
+
+.game ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -18,7 +16,7 @@ ul {
     height: 100%;
 }
 
-a {
+.game a {
     width: 100%;
     position: absolute;
     top:0;
