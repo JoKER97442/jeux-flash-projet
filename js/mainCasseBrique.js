@@ -515,7 +515,7 @@ function displayGame()
 
 /* **************************************************** KEYBOARD **************************************************** */
 function keyboardEvent(e) {
-    
+    e.preventEvent();
     if (e.key == 'ArrowRight') {
         if (e.type == "keydown") {
             paddle.direction = 1;
