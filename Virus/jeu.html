@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Défouloir</title></head>
+	<link rel="stylesheet" href="jeu.css">
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+<body>
+
+	<div id="endScreen"></div>
+	<button id="start" onclick="start()">Démarrer / Redémarrer le jeu</button>
+	<div class="scoreboard"> 
+		<div class="kills">Score : <span id="score">0</span></div>
+		<div class="confinement">Jours avant la fin du confinement : <span id="days">60</span></div>
+	</div>
+
+	<div id="canvas"></div>
+
+<script src="jeu.js"></script>   
+</body>
+</html>
