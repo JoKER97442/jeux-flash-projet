@@ -14,33 +14,21 @@ window.addEventListener("load", function() {
     console.log("La page est charger !");
 
     jeu = document.querySelector("#jeu");
-    jeu.addEventListener("click", playGame);
+    recupereBlock();
+    document.addEventListener("click", clickEvent);
 });
 
 /* ****************  GERER LA LANCEMENT ET AFFICHAGE  **************** */
-function playGame(event) {
-    event.preventDefault();
-    jeu.removeEventListener("click", playGame);
+function playGame() {
     start = true;
-    recupereBlock();
     updateTour();
 }
-function replay(event) {
-    event.preventDefault();
-    jeu.removeEventListener("click", replay);
+function replay() {
     gagner = false;
     partieNull = false;
-    jeu.addEventListener("click", playGame);
-    
+    recupereBlock();
     console.log("game")
 };
-
-function gameOver() {
-    start = false;
-    for (let i = 0; i < listBlock.length; ++i) {
-        listBlock[i].removeEventListener("click", writeMorpion);
-    };
-}
 
 function affichage() {
     affiche = document.querySelector("#commande");
@@ -61,32 +49,26 @@ function recupereBlock() {
         block = document.querySelector("#block" + i);
         block.innerHTML = "";
         block.morpion = false;
-        block.addEventListener("click", writeMorpion);
         listBlock.push(block);
     }
     console.log("Les BLOCK est charger !");
 }
-
             
 /* ****************  ECRITURE X / O  **************** */ 
-function writeMorpion(event) {
-    event.preventDefault();
-    this.removeEventListener("click", writeMorpion);
+function writeMorpion(cible) {
     if (tour === playerX) {
-        this.innerHTML = "x";
+        cible.innerHTML = "x";
     } else if (tour === playerO) {
-        this.innerHTML = "o";
+        cible.innerHTML = "o";
     }
-    condition();
+    cible.morpion = true;
+    updateTour();
 }
 
 /* Gerer les tour */
 function updateTour() {
-    if (gagner || partieNull) {
-        gameOver();
-        jeu.addEventListener("click", replay);
-    }
-    if (start) {
+    condition();
+    if (start && !gagner && !partieNull) {
         if (tour === playerX) {
             tour = playerO;
         } else if (tour === playerO) {
@@ -166,5 +148,37 @@ function condition() {
             };
         };
     };
-    updateTour();
-}
+};
+
+/* ****************  CLICK  **************** */ 
+function clickEvent(event) {
+    console.log(event);
+    event.preventDefault();
+    let cible = event.target;
+        for (let i = 0; i < listBlock.length; ++i) {
+            if(cible.id === `block${i}`) {
+                console.log(cible);
+                if (!start) {
+                console.log("play");
+                playGame();
+                } else if(gagner || partieNull) {
+                    replay();
+                    console.log("replay");
+                } else {
+                    if(!cible.morpion) {
+                    writeMorpion(cible);
+                    console.log("cible");
+                    };
+                };
+            };
+        };
+    if (cible.id === "game") {
+        if (!start) {
+        console.log("play");
+        playGame();
+        } else if(gagner || partieNull) {
+            replay();
+            console.log("replay");
+        }
+    };
+};
