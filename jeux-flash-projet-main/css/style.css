@@ -32,7 +32,6 @@ HEADER
     justify-content: center;
     display: flex;
     align-items: center;
-    margin: 1rem 0;
 }
 
 .header a:hover{
@@ -59,10 +58,10 @@ main img{
     border-radius: 50px;
 }
 
-/*.jeux1 img {
+.jeux1 img {
     width: 400px;
     height: 600px;
-}*/
+}
 
 article {
     margin : 4em;
@@ -95,13 +94,10 @@ article a {
     background-color: rgb(255, 0, 0);
 }
 .jeux4 a:hover{
-    background-color: #E4F2E6;
+    background-color: rgb(255, 0, 0);
 }
 .jeux5 a:hover{
     background-color: #D91828;
-}
-.jeux6 a:hover{
-    background-color: #463839;
 }
 
 
@@ -127,7 +123,7 @@ GAME
 .game{
     display: flex;
     justify-content: center;
-    margin: 7.6rem ;
+    margin: 7.6rem;
 
 }
 
@@ -136,7 +132,6 @@ GAME
     height: 500px;
     background-color: white
 }
-
 
 /* *****************************************************************
 MEDIA

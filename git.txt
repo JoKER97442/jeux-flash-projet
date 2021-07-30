@@ -1,0 +1,51 @@
+nom de depot = 	
+	origin
+nom des branche = 
+	origin/main
+	origin/jonathan
+	origin/mathieu
+	origin/severine
+	origin/valentin	
+
+/* ******* POUR RECUPERER ******* */
+$ git --version
+verifie que git est installé
+
+$ git clone [url]
+Télécharge un projet et tout son historique de versions
+
+$ git branch --list -r
+Voit les branch sur le gitHub
+	
+	Si les branch n'apparait pas
+$ git fetch [nom-de-depot]
+Récupère tout l'historique du dépôt nommé
+
+$ git checkout -b jonathan --track origin/jonathan
+Recupere la branch sur le gitHub
+
+
+/* ******* POUR SAVE ET COMMIT ******* */
+
+Enregistre le fichier
+
+$ git add [fichier]
+Ajoute un instantané du fichier, en préparation pour le suivi de version
+
+$ git commit -m "[message descriptif]"
+Enregistre des instantanés de fichiers de façon permanente dans
+l'historique des versions
+
+	Si branch du GitHub
+$ git push
+Envoie tous les commits de la branche vers GitHub
+
+	Si branch creer en Local
+$ git push [alias] [branche]
+Envoie tous les commits de la branche locale vers GitHub
+
+
+/* ******* RECUPERE COMMIT D4UNE BRANCHE ******* */
+$ git merge [nom-de-depot]/[branche]
+Fusionne la branche du dépôt dans la branche locale courante
+
