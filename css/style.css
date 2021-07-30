@@ -132,6 +132,12 @@ GAME
     height: 500px;
     background-color: white
 }
+.description{
+    margin-left: 3em;
+    width: 40%;
+    font-size:2.5rem;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
 
 /* *****************************************************************
 MEDIA
