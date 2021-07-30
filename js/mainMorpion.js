@@ -9,13 +9,15 @@ let gagner = false;
 let partieNull = false;
 let start = false;
 let jeu;
+let game;
 
 window.addEventListener("load", function() {
     console.log("La page est charger !");
 
     jeu = document.querySelector("#jeu");
+    game = document.querySelector("#jeu");
     recupereBlock();
-    document.addEventListener("click", clickEvent);
+    game.addEventListener("click", clickEvent);
 });
 
 /* ****************  GERER LA LANCEMENT ET AFFICHAGE  **************** */
