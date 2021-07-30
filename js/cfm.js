@@ -1,5 +1,5 @@
 let canvasDom = document.querySelector("canvas");
-canvasDom.width = 1100;
+canvasDom.width = 500;
 canvasDom.height = 500;
 canvasDom.style.backgroundColor = "#000";
 
