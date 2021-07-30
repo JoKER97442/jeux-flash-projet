@@ -33,11 +33,11 @@ function replay() {
 function affichage() {
     affiche = document.querySelector("#commande");
     if (gagner) {
-        affiche.innerHTML = `${tour} à gagner !`;
+        affiche.innerText = `${tour} à gagner !`;
     } else if (partieNull) {
-        affiche.innerHTML = `Partie nul !`;
+        affiche.innerText = `Partie nul !`;
     } else {
-        affiche.innerHTML = `C'est au tour de ${tour}`;
+        affiche.innerText = `C'est au tour de ${tour}`;
     }
 }
 
@@ -47,7 +47,7 @@ function recupereBlock() {
     for(let i = 0; i < 9; ++i) {
         let block = listBlock[i];
         block = document.querySelector("#block" + i);
-        block.innerHTML = "";
+        block.innerText = "";
         block.morpion = false;
         listBlock.push(block);
     }
@@ -57,9 +57,9 @@ function recupereBlock() {
 /* ****************  ECRITURE X / O  **************** */ 
 function writeMorpion(cible) {
     if (tour === playerX) {
-        cible.innerHTML = "x";
+        cible.innerText = "x";
     } else if (tour === playerO) {
-        cible.innerHTML = "o";
+        cible.innerText = "o";
     }
     cible.morpion = true;
     updateTour();
@@ -82,64 +82,64 @@ function updateTour() {
 function condition() {
     let perdu = 0;
     // Ligne 1
-    if (listBlock[0].innerHTML !== "" && 
-        listBlock[0].innerHTML === listBlock[1].innerHTML && 
-        listBlock[0].innerHTML === listBlock[2].innerHTML) {
+    if (listBlock[0].innerText !== "" && 
+        listBlock[0].innerText === listBlock[1].innerText && 
+        listBlock[0].innerText === listBlock[2].innerText) {
             console.log("gagne ligne 1");
             gagner = true;
     } else
     // Ligne 2
-    if (listBlock[3].innerHTML !== "" &&
-        listBlock[3].innerHTML === listBlock[4].innerHTML &&
-        listBlock[3].innerHTML === listBlock[5].innerHTML) {
+    if (listBlock[3].innerText !== "" &&
+        listBlock[3].innerText === listBlock[4].innerText &&
+        listBlock[3].innerText === listBlock[5].innerText) {
         console.log("gagne ligne 2");
         gagner = true;
     } else
     // Ligne 3
-    if (listBlock[6].innerHTML !== "" &&
-        listBlock[6].innerHTML === listBlock[7].innerHTML &&
-        listBlock[6].innerHTML === listBlock[8].innerHTML) {
+    if (listBlock[6].innerText !== "" &&
+        listBlock[6].innerText === listBlock[7].innerText &&
+        listBlock[6].innerText === listBlock[8].innerText) {
             console.log("gagne ligne 3");
             gagner = true;
     } else
     // Colone 1
-    if (listBlock[0].innerHTML !== "" &&
-        listBlock[0].innerHTML === listBlock[3].innerHTML &&
-        listBlock[0].innerHTML === listBlock[6].innerHTML) {
+    if (listBlock[0].innerText !== "" &&
+        listBlock[0].innerText === listBlock[3].innerText &&
+        listBlock[0].innerText === listBlock[6].innerText) {
             console.log("gagne colone 1");
             gagner = true;
     } else
     // Colone 2
-    if (listBlock[1].innerHTML !== "" &&
-        listBlock[1].innerHTML === listBlock[4].innerHTML &&
-        listBlock[1].innerHTML === listBlock[7].innerHTML) {
+    if (listBlock[1].innerText !== "" &&
+        listBlock[1].innerText === listBlock[4].innerText &&
+        listBlock[1].innerText === listBlock[7].innerText) {
             console.log("gagne colone 2");
             gagner = true;
     } else
     // Colone 3
-    if (listBlock[2].innerHTML !== "" &&
-        listBlock[2].innerHTML === listBlock[5].innerHTML &&
-        listBlock[2].innerHTML === listBlock[8].innerHTML) {
+    if (listBlock[2].innerText !== "" &&
+        listBlock[2].innerText === listBlock[5].innerText &&
+        listBlock[2].innerText === listBlock[8].innerText) {
             console.log("gagne colone 3");
             gagner = true;
     } else
     // Diagonal 1
-    if (listBlock[0].innerHTML !== "" &&
-        listBlock[0].innerHTML === listBlock[4].innerHTML &&
-        listBlock[0].innerHTML === listBlock[8].innerHTML) {
+    if (listBlock[0].innerText !== "" &&
+        listBlock[0].innerText === listBlock[4].innerText &&
+        listBlock[0].innerText === listBlock[8].innerText) {
             console.log("gagne diag 1");
             gagner = true;
     } else
     // Diagonal 2
-    if (listBlock[2].innerHTML !== "" &&
-        listBlock[2].innerHTML === listBlock[4].innerHTML &&
-        listBlock[2].innerHTML === listBlock[6].innerHTML) {
+    if (listBlock[2].innerText !== "" &&
+        listBlock[2].innerText === listBlock[4].innerText &&
+        listBlock[2].innerText === listBlock[6].innerText) {
             console.log("gagne diag 2");
             gagner = true;
     } else {
         for (let i = 0; i < listBlock.length; ++i) {
             // PERDU
-            if (listBlock[i].innerHTML !== "") {
+            if (listBlock[i].innerText !== "") {
                 perdu++;
                 if (perdu === 9) {
                     console.log("perdu");
