@@ -6,7 +6,7 @@ export default Vue.component('HeaderTemplateJeux', {
     </header>`,
     data() {
         return {
-            arr: [ 'FlappyBird', 'Morpion', 'ChiFouMi', 'CasseBrique', 'Virus', 'Memory' ],
+            arr: [ 'FlappyBird', 'Morpion', 'ChiFouMi', 'CasseBrique', 'Virus', 'Memory', 'Pacman' ],
         };
     },
 });

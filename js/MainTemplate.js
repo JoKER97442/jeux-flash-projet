@@ -8,7 +8,7 @@ export default Vue.component('MainTemplate', {
         </main>`,
     data() {
         return {
-            arr: [ 'FlappyBird', 'Morpion', 'ChiFouMi', 'CasseBrique', 'Virus', 'Memory' ],
+            arr: [ 'FlappyBird', 'Morpion', 'ChiFouMi', 'CasseBrique', 'Virus', 'Memory', 'Pacman' ],
         };
     },
 });
