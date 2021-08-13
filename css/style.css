@@ -8,7 +8,7 @@ html {
 
 body {
 	font-size: 1.6rem; /* on remets la taille du texte par défaut pour le body à 16px en utilisant les rem comme unité) */
-    background-color: rgb(201, 201, 201)
+    background-color: rgb(201, 201, 201);
 }
 
 /* *****************************************************************
@@ -52,7 +52,7 @@ MAIN
     align-items: center;
 }
 
-main img{
+main .jeux1 img{
     width: 400px;
     height: 400px;
     border: 1px solid black;

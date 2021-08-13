@@ -16,17 +16,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header class="header">
-            <a href="../index.html">Index</a>
-            <a href="Morpion.html">Morpion</a>
-            <a href="ChiFouMi.html">Chi Fou Mi</a>
-            <a href="CasseBrique.html">Casse brique</a>
-            <a href="Virus.html">Virus</a>
-            <a href="Memory.html">Memory</a>
-        </header>
-
+        <div id="app">
+            <header-template-jeux></header-template-jeux>
+        </div>
         <main class='game bird'>
-            
             <div class ='slide-in-elliptic-right-fwd'>
                 <div class="score">
                     <h1>Flappy Bird</h1>
@@ -47,11 +40,12 @@
                 <p>Pour ce faire, il suffit de cliquer sur l'interface à chaque fois que vous souhaitez que Flappy remonte.</p>
             </section>
         </main>
-
         <footer class="footer">
             <p><a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/"><img alt="Propriété de la 3W Academy" src="https://3wa.fr/wp-content/themes/3wa2015/img/logos/big.png"></a></p>
-            <p>Ce matériel pédagogique est la propriété de la <a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/">3W Academy</a>. Cet exercice a été réalisé par Séverine , Jonathan , Mathieu et Valentin.</p>
+            <p>Ce matériel pédagogique est la propriété de la <a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/">3W Academy</a>. Cet exercice a été réalisé par Séverinne , Jonathan , Mathieu et Valentin.</p>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="module" src="../js/main.js"></script>
         <script type="text/javascript" src="../js/scriptFlappyBird.js"></script>
-</body>
+    </body>
 </html>

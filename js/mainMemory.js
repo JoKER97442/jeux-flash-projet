@@ -24,6 +24,7 @@ let oldSelection=[];
 let nbAffiche = 0;
 let ready = true;
 
+
 afficherTableau();
 
 function afficherTableau() {
